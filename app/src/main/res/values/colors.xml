@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Created by muham on 12/09/2021, 10:21 AM
+  ~ Created by muham on 12/09/2021, 12:12 PM
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 12/09/2021, 10:21 AM
+  ~ Last modified 12/09/2021, 10:55 AM
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <resources>
@@ -15,4 +15,5 @@
     <color name="dark_blue">#082032</color>
     <color name="medium_dark_blue">#2C394B</color>
     <color name="light_dark_blue">#334756</color>
+    <color name="transparent">#00ffffff</color>
 </resources>
