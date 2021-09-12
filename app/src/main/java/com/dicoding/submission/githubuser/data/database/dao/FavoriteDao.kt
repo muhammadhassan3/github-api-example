@@ -1,4 +1,10 @@
 /*******************************************************************************
+ * Created by muham on 12/09/2021, 12:12 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/09/2021, 11:51 AM
+ ******************************************************************************/
+
+/*******************************************************************************
  * Created by muham on 12/09/2021, 10:21 AM
  * Copyright (c) 2021 . All rights reserved.
  * Last modified 12/09/2021, 10:17 AM
@@ -33,4 +39,7 @@ interface FavoriteDao {
 
     @Query("select * from tbl_favorite order by id desc")
     fun getAll(): LiveData<List<Favorite>>
+
+    @Query("select * from tbl_favorite e where e.username = :username limit 1")
+    fun findByUsername(username: String): LiveData<Favorite>
 }
