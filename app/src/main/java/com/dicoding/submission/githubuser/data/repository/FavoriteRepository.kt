@@ -1,4 +1,10 @@
 /*******************************************************************************
+ * Created by muham on 12/09/2021, 12:12 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/09/2021, 12:12 PM
+ ******************************************************************************/
+
+/*******************************************************************************
  * Created by muham on 12/09/2021, 10:21 AM
  * Copyright (c) 2021 . All rights reserved.
  * Last modified 12/09/2021, 10:21 AM
@@ -13,6 +19,7 @@
 package com.dicoding.submission.githubuser.data.repository
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dicoding.submission.githubuser.data.database.GithubDatabase
 import com.dicoding.submission.githubuser.data.database.dao.FavoriteDao
@@ -23,8 +30,11 @@ class FavoriteRepository(application: Application) {
     private var favoriteDao: FavoriteDao
     private var database = GithubDatabase.getInstance(application)
     private var data = MutableLiveData<ApiResponse<List<Favorite>>>()
+    private var singleData = MutableLiveData<ApiResponse<Favorite>>()
 
     fun getData(): MutableLiveData<ApiResponse<List<Favorite>>> = data
+
+    fun getSingleData(): MutableLiveData<ApiResponse<Favorite>> = singleData
 
     init {
         favoriteDao = database.favoriteDao()
@@ -53,5 +63,14 @@ class FavoriteRepository(application: Application) {
     fun deleteAll() {
         favoriteDao.deleteAll()
         getAll()
+    }
+
+    fun getByUsername(username: String): LiveData<ApiResponse<Favorite>> {
+        val result = favoriteDao.findByUsername(username)
+        if (result.value != null) {
+            singleData.value = ApiResponse.success(result.value)
+        } else data.value = ApiResponse.noData()
+
+        return singleData
     }
 }

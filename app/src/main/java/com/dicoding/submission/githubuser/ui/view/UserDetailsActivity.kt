@@ -1,4 +1,10 @@
 /*******************************************************************************
+ * Created by muham on 12/09/2021, 12:12 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/09/2021, 12:11 PM
+ ******************************************************************************/
+
+/*******************************************************************************
  * Created by muham on 12/09/2021, 10:21 AM
  * Copyright (c) 2021 . All rights reserved.
  * Last modified 12/09/2021, 10:21 AM
@@ -99,18 +105,21 @@ class UserDetailsActivity : AppCompatActivity() {
 
 
     private fun setView(show: Show, user: UserDetails?) {
-        binding.progressIndicator.gone()
-        binding.imgAvatar.invisible()
-        binding.tvName.invisible()
-        binding.tvUsername.invisible()
-        binding.tvLocation.invisible()
-        binding.iconLocation.invisible()
-        binding.tvUsername.invisible()
-        binding.tvOffice.invisible()
-        binding.iconOffice.invisible()
-        binding.tvFollowers.invisible()
-        binding.tvFollowing.invisible()
-        binding.tvRepository.invisible()
+        binding.apply {
+            progressIndicator.gone()
+            imgAvatar.invisible()
+            tvName.invisible()
+            tvUsername.invisible()
+            tvLocation.invisible()
+            iconLocation.invisible()
+            tvUsername.invisible()
+            tvOffice.invisible()
+            iconOffice.invisible()
+            tvFollowers.invisible()
+            tvFollowing.invisible()
+            tvRepository.invisible()
+            btnFavorite.invisible()
+        }
         if (show == Show.PROGRESS_INDICATOR) {
             binding.progressIndicator.visible()
         } else {
@@ -126,6 +135,7 @@ class UserDetailsActivity : AppCompatActivity() {
                 tvFollowers.visible()
                 tvFollowing.visible()
                 tvRepository.visible()
+                btnFavorite.visible()
             }
 
             val avatar = if (user?.avatarUrl?.contains("res/drawable/") == true) {
