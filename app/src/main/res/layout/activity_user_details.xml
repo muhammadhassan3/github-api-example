@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Created by muham on 12/09/2021, 10:21 AM
+  ~ Created by muham on 12/09/2021, 12:11 PM
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 12/09/2021, 10:21 AM
+  ~ Last modified 12/09/2021, 12:11 PM
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -169,6 +169,21 @@
                             app:layout_constraintStart_toEndOf="@id/iconOffice"
                             app:layout_constraintTop_toTopOf="@id/iconOffice"
                             tools:text="Office" />
+
+                        <ImageButton
+                            android:id="@+id/btnFavorite"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitXY"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0"
+                            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
