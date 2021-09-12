@@ -1,0 +1,83 @@
+/*******************************************************************************
+ * Created by muham on 12/09/2021, 10:21 AM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/09/2021, 10:17 AM
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Created by muham on 12/09/2021, 10:16 AM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 12/08/2021, 12:06 PM
+ ******************************************************************************/
+
+package com.dicoding.submission.githubuser.data.model
+
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class UserDetails(
+    @SerializedName("gist_url")
+    var gistsUrl: String? = null,
+    @SerializedName("repos_url")
+    var reposUrl: String? = null,
+    @SerializedName("following_url")
+    var followingUrl: String? = null,
+    @SerializedName("twitter_username")
+    var twitterUsername: String? = null,
+    @SerializedName("bio")
+    var bio: String? = null,
+    @SerializedName("created_at")
+    var createdAt: String? = null,
+    @SerializedName("login")
+    var login: String? = null,
+    @SerializedName("type")
+    var type: String? = null,
+    @SerializedName("blog")
+    var blog: String? = null,
+    @SerializedName("subscriptions_url")
+    var subscriptionsUrl: String? = null,
+    @SerializedName("updated_at")
+    var updatedAt: String? = null,
+    @SerializedName("company")
+    var company: String? = null,
+    @SerializedName("id")
+    var id: Int? = null,
+    @SerializedName("public_repos")
+    var publicRepos: Int? = null,
+    @SerializedName("gravatar_id")
+    var gravatarId: String? = null,
+    @SerializedName("email")
+    var email: String? = null,
+    @SerializedName("organizations_url")
+    var organizationsUrl: String? = null,
+    @SerializedName("hireable")
+    var hireable: String? = null,
+    @SerializedName("starred_url")
+    var starredUrl: String? = null,
+    @SerializedName("followers_url")
+    var followersUrl: String? = null,
+    @SerializedName("public_gists")
+    var publicGists: Int? = null,
+    @SerializedName("url")
+    var url: String? = null,
+    @SerializedName("received_events_url")
+    var receivedEventsUrl: String? = null,
+    @SerializedName("followers")
+    var followers: Int? = null,
+    @SerializedName("avatar_url")
+    var avatarUrl: String? = null,
+    @SerializedName("events_url")
+    var eventsUrl: String? = null,
+    @SerializedName("html_url")
+    var htmlUrl: String? = null,
+    @SerializedName("following")
+    var following: Int? = null,
+    @SerializedName("name")
+    var name: String? = null,
+    @SerializedName("location")
+    var location: String? = null,
+    @SerializedName("node_id")
+    var nodeId: String? = null
+) : Parcelable
