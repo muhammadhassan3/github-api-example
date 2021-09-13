@@ -9,9 +9,11 @@ package com.dicoding.submission.githubuser.ui.main.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.dicoding.submission.githubuser.data.database.entity.Favorite
 import com.dicoding.submission.githubuser.data.repository.FavoriteRepository
 import com.dicoding.submission.githubuser.others.ApiResponse
+import kotlinx.coroutines.launch
 
 class FavoriteViewModel(app: Application) : AndroidViewModel(app) {
     private val repository = FavoriteRepository(app)
@@ -20,12 +22,11 @@ class FavoriteViewModel(app: Application) : AndroidViewModel(app) {
     fun getData(): MutableLiveData<ApiResponse<List<Favorite>>> = data
 
     fun insert(favorite: Favorite) {
-        repository.insert(favorite)
+        viewModelScope.launch {
+            repository.insert(favorite)
+        }
     }
 
-    fun delete(favorite: Favorite) {
-        repository.delete(favorite)
-    }
 
     fun deleteAll() {
         repository.deleteAll()
