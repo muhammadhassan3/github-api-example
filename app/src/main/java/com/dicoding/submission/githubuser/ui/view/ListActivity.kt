@@ -51,7 +51,7 @@ class ListActivity : AppCompatActivity(), UserListAdapter.UserListInterface {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.search_setting_toolbar, menu)
+        menuInflater.inflate(R.menu.search_setting_favorite_toolbar, menu)
         initSearchView(menu)
         return super.onCreateOptionsMenu(menu)
     }
