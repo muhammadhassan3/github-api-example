@@ -9,8 +9,10 @@ package com.dicoding.submission.githubuser.ui.view
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,16 +21,20 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.submission.githubuser.R
 import com.dicoding.submission.githubuser.adapter.SectionPagerAdapter
+import com.dicoding.submission.githubuser.data.database.entity.Favorite
 import com.dicoding.submission.githubuser.data.model.UserDetails
 import com.dicoding.submission.githubuser.databinding.ActivityUserDetailsBinding
 import com.dicoding.submission.githubuser.others.*
 import com.dicoding.submission.githubuser.ui.main.viewmodel.UserDetailsViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
-class UserDetailsActivity : AppCompatActivity() {
+class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUserDetailsBinding
     private lateinit var user: UserDetails
-    private lateinit var viewmodel: UserDetailsViewModel
+    private lateinit var viewModel: UserDetailsViewModel
+
+    private var isFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,16 +50,18 @@ class UserDetailsActivity : AppCompatActivity() {
             intent.getParcelableExtra(USER_INFO)!!
         }
 
-        viewmodel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+        viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
             .get(UserDetailsViewModel::class.java)
 
         initTabLayoutWithViewPager()
         setupViewModel()
-        if (user.login != null) viewmodel.getUserDetails(user.login!!)
+        if (user.login != null) viewModel.getUserDetails(user.login!!)
+
+        binding.btnFavorite.setOnClickListener(this)
     }
 
     private fun setupViewModel() {
-        viewmodel.getData().observe(this, {
+        viewModel.getData().observe(this, {
             if (it != null) {
                 when (it.status) {
                     Status.LOADING -> {
@@ -77,6 +85,26 @@ class UserDetailsActivity : AppCompatActivity() {
                     }
                     Status.SUCCESS -> {
                         setView(Show.VIEW, it.data)
+                    }
+                }
+            }
+        })
+
+        viewModel.getFavoriteData().observe(this, {
+            Log.i(TAG, "setupViewModel: Data Modified $it")
+            it?.let {
+                when (it.status) {
+                    Status.SUCCESS -> {
+                        isFavorite = true
+                        binding.btnFavorite.apply {
+                            setImageResource(R.drawable.ic_baseline_favorite_24)
+                        }
+                    }
+                    else -> {
+                        isFavorite = false
+                        binding.btnFavorite.apply {
+                            setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                        }
                     }
                 }
             }
@@ -145,6 +173,10 @@ class UserDetailsActivity : AppCompatActivity() {
             binding.tvFollowers.text = user?.followers.toString()
             binding.tvFollowing.text = user?.following.toString()
             binding.tvRepository.text = user?.publicRepos.toString()
+
+            user?.login?.let {
+                viewModel.getFavoriteUser(it)
+            }
         }
     }
 
@@ -192,11 +224,37 @@ class UserDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val USER_INFO = "user_info"
+        private const val TAG = "UserDetailsActivity"
 
         @StringRes
         private val tabTitle = arrayOf(
             R.string.followers,
             R.string.following
         )
+    }
+
+    override fun onClick(p0: View?) {
+        p0?.let {
+            when (it.id) {
+                binding.btnFavorite.id -> {
+                    val favorite = Favorite(null, user.login, user.avatarUrl, user.location)
+                    if (isFavorite) {
+                        Snackbar.make(
+                            it,
+                            getString(R.string.added_to_favorite),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        viewModel.deleteFavorite(favorite)
+                    } else {
+                        viewModel.addFavorite(favorite)
+                        Snackbar.make(
+                            it,
+                            getString(R.string.removed_from_favorite),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
     }
 }

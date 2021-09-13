@@ -10,11 +10,13 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.dicoding.submission.githubuser.data.database.entity.Favorite
 import com.dicoding.submission.githubuser.data.model.UserDetails
 import com.dicoding.submission.githubuser.data.repository.FavoriteRepository
 import com.dicoding.submission.githubuser.data.repository.UserRepository
 import com.dicoding.submission.githubuser.others.ApiResponse
+import kotlinx.coroutines.launch
 
 class UserDetailsViewModel(app: Application) : AndroidViewModel(app) {
     private val repository = UserRepository()
@@ -32,6 +34,22 @@ class UserDetailsViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun getFavoriteUser(username: String) {
-        favoriteData.postValue(favoriteRepository.getByUsername(username).value)
+        viewModelScope.launch {
+            favoriteData.postValue(favoriteRepository.getByUsername(username).value)
+        }
+    }
+
+    fun addFavorite(favorite: Favorite) {
+        viewModelScope.launch {
+            favoriteRepository.insert(favorite)
+        }
+    }
+
+    fun deleteFavorite(favorite: Favorite) {
+        viewModelScope.launch {
+            favorite.username?.let {
+                favoriteRepository.deleteByusername(it)
+            }
+        }
     }
 }
