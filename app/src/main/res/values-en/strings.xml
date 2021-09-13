@@ -127,4 +127,7 @@
     <string name="error_code">Error : %s</string>
     <string name="delete_all">Delete All</string>
     <string name="background">Background</string>
+    <string name="added_to_favorite">Added to favorite</string>
+    <string name="removed_from_favorite">Removed from favorite</string>
+    <string name="favorite">Favorite</string>
 </resources>

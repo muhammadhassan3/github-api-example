@@ -129,6 +129,9 @@
     <string name="github_logo" translatable="false">Github Icon</string>
     <string name="delete_all">Hapus Semua</string>
     <string name="background">Latar Belakang</string>
+    <string name="added_to_favorite">Ditambahkan ke favorit</string>
+    <string name="removed_from_favorite">Dihapus dari favorit</string>
+    <string name="favorite">Favorit</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
 
