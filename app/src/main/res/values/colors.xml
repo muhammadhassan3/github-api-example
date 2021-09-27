@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Created by muham on 12/09/2021, 12:20 PM
+  ~ Created by muham on 18/09/2021, 9:03 AM
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 12/09/2021, 12:20 PM
+  ~ Last modified 18/09/2021, 9:00 AM
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <resources>
@@ -16,4 +16,6 @@
     <color name="medium_dark_blue">#2C394B</color>
     <color name="light_dark_blue">#334756</color>
     <color name="transparent">#00ffffff</color>
+    <color name="dark_gray">#474747</color>
+    <color name="light_gray">@android:color/darker_gray</color>
 </resources>

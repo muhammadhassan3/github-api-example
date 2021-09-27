@@ -9,13 +9,13 @@ package com.dicoding.submission.githubuser.ui.view
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -28,6 +28,7 @@ import com.dicoding.submission.githubuser.others.*
 import com.dicoding.submission.githubuser.ui.main.viewmodel.UserDetailsViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.launch
 
 class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUserDetailsBinding
@@ -55,13 +56,14 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
         initTabLayoutWithViewPager()
         setupViewModel()
-        if (user.login != null) viewModel.getUserDetails(user.login!!)
-
+        user.login?.let {
+            viewModel.getUserDetails(user.login!!)
+        }
         binding.btnFavorite.setOnClickListener(this)
     }
 
     private fun setupViewModel() {
-        viewModel.getData().observe(this, {
+        viewModel.data.observe(this, {
             if (it != null) {
                 when (it.status) {
                     Status.LOADING -> {
@@ -90,25 +92,23 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
-        viewModel.getFavoriteData().observe(this, {
-            Log.i(TAG, "setupViewModel: Data Modified $it")
-            it?.let {
-                when (it.status) {
-                    Status.SUCCESS -> {
+        user.login?.let {
+            lifecycleScope.launch {
+                viewModel.getFavoriteUser(it).observe(this@UserDetailsActivity, {
+                    if (it != null) {
                         isFavorite = true
                         binding.btnFavorite.apply {
                             setImageResource(R.drawable.ic_baseline_favorite_24)
                         }
-                    }
-                    else -> {
+                    } else {
                         isFavorite = false
                         binding.btnFavorite.apply {
                             setImageResource(R.drawable.ic_baseline_favorite_border_24)
                         }
                     }
-                }
+                })
             }
-        })
+        }
     }
 
     private fun initTabLayoutWithViewPager() {
@@ -139,6 +139,9 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
         if (show == Show.PROGRESS_INDICATOR) {
             binding.progressIndicator.visible()
         } else {
+            user?.let {
+                this.user = it
+            }
             binding.apply {
                 imgAvatar.visible()
                 tvName.visible()
@@ -153,11 +156,7 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
                 tvRepository.visible()
                 btnFavorite.visible()
             }
-
-            val avatar = if (user?.avatarUrl?.contains("res/drawable/") == true) {
-                Util.getImageId(this, user.avatarUrl!!)
-            } else user?.avatarUrl
-            Glide.with(this).load(avatar)
+            Glide.with(this).load(user?.avatarUrl)
                 .fitCenter()
                 .apply(RequestOptions.bitmapTransform(RoundedCorners(12)))
                 .into(binding.imgAvatar)
@@ -173,10 +172,6 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
             binding.tvFollowers.text = user?.followers.toString()
             binding.tvFollowing.text = user?.following.toString()
             binding.tvRepository.text = user?.publicRepos.toString()
-
-            user?.login?.let {
-                viewModel.getFavoriteUser(it)
-            }
         }
     }
 
@@ -222,6 +217,32 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
         VIEW
     }
 
+    override fun onClick(p0: View?) {
+        p0?.let {
+            when (it.id) {
+                binding.btnFavorite.id -> {
+                    val favorite =
+                        Favorite(null, user.name, user.login, user.avatarUrl, user.location)
+                    if (isFavorite) {
+                        Snackbar.make(
+                            it,
+                            getString(R.string.removed_from_favorite),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        viewModel.deleteFavorite(favorite)
+                    } else {
+                        viewModel.addFavorite(favorite)
+                        Snackbar.make(
+                            it,
+                            getString(R.string.added_to_favorite),
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
+
     companion object {
         const val USER_INFO = "user_info"
         private const val TAG = "UserDetailsActivity"
@@ -231,30 +252,5 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
             R.string.followers,
             R.string.following
         )
-    }
-
-    override fun onClick(p0: View?) {
-        p0?.let {
-            when (it.id) {
-                binding.btnFavorite.id -> {
-                    val favorite = Favorite(null, user.login, user.avatarUrl, user.location)
-                    if (isFavorite) {
-                        Snackbar.make(
-                            it,
-                            getString(R.string.added_to_favorite),
-                            Snackbar.LENGTH_SHORT
-                        ).show()
-                        viewModel.deleteFavorite(favorite)
-                    } else {
-                        viewModel.addFavorite(favorite)
-                        Snackbar.make(
-                            it,
-                            getString(R.string.removed_from_favorite),
-                            Snackbar.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-        }
     }
 }

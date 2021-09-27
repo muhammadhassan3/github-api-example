@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Created by muham on 18/09/2021, 9:31 AM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 18/09/2021, 9:31 AM
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreferenceCompat
+        android:key="@string/dark_mode"
+        android:summary="@string/dark_mode_subtitle"
+        android:title="@string/dark_mode"
+        app:iconSpaceReserved="false"
+        app:title="@string/dark_mode" />
+    <Preference
+        android:key="@string/localization"
+        android:summary="@string/localization_summary"
+        android:title="@string/localization"
+        app:iconSpaceReserved="false" />
+</PreferenceScreen>

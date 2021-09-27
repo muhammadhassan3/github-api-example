@@ -10,7 +10,6 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -59,7 +58,11 @@ class ListActivity : AppCompatActivity(), UserListAdapter.UserListInterface {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.btnSettings -> {
-                val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.btnFavorite -> {
+                val intent = Intent(this, FavoriteActivity::class.java)
                 startActivity(intent)
             }
         }

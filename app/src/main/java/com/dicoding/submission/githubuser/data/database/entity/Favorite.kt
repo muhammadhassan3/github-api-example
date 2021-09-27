@@ -17,6 +17,7 @@ import kotlinx.parcelize.Parcelize
 data class Favorite(
     @PrimaryKey(autoGenerate = true)
     var id: Int?,
+    var name: String?,
     var username: String?,
     var avatarUrl: String?,
     var location: String?

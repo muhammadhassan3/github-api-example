@@ -27,14 +27,13 @@
 
     <TextView
         android:id="@+id/tvName"
-        style="@style/TextAppearance.AppCompat.Medium"
+        style="@style/Githubuser.TextAppearance.Medium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgIcon"
@@ -61,7 +60,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/iconLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iconLocation"

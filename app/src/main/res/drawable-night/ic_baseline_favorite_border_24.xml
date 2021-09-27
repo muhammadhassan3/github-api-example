@@ -1,13 +1,13 @@
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Created by muham on 12/09/2021, 12:20 PM
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Created by muham on 20/09/2021, 9:05 AM
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 12/09/2021, 12:20 PM
+  ~ Last modified 20/09/2021, 9:05 AM
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:tint="@color/black"
+    android:tint="@color/light_gray"
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path

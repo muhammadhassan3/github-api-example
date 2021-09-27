@@ -130,4 +130,13 @@
     <string name="added_to_favorite">Added to favorite</string>
     <string name="removed_from_favorite">Removed from favorite</string>
     <string name="favorite">Favorite</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="localization">Language</string>
+    <string name="dark_mode_subtitle">Activate dark mode</string>
+    <string name="localization_summary">Choose Language</string>
+    <string name="home_location">Lokasi Rumah</string>
+    <string name="office_location">Lokasi Kantor</string>
+    <string name="profile_picture">Foto Profil</string>
+    <string name="favorite_button">Tombol Favorit</string>
+    <string name="setting">Settings</string>
 </resources>

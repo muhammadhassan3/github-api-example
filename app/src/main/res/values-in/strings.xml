@@ -1,11 +1,10 @@
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Created by muham on 12/09/2021, 12:20 PM
+<?xml version="1.0" encoding="utf-8"?><!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Created by muham on 24/09/2021, 2:22 PM
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 12/09/2021, 12:20 PM
+  ~ Last modified 24/09/2021, 2:22 PM
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <resources>
-    <string name="app_name" translatable="false">Github User</string>
     <string name="followers">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="repository">Repositori</string>
@@ -126,7 +125,6 @@
     <string name="neutral_button_text">Oke</string>
     <string name="info_title">Pemberitahuan</string>
     <string name="error_code">Kesalahan : %s</string>
-    <string name="github_logo" translatable="false">Github Icon</string>
     <string name="delete_all">Hapus Semua</string>
     <string name="background">Latar Belakang</string>
     <string name="added_to_favorite">Ditambahkan ke favorit</string>
@@ -142,5 +140,3 @@
     <string name="favorite_button">Favorite Button</string>
     <string name="setting">Pengaturan</string>
 </resources>
-
-
