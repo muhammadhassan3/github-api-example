@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 12/08/2021, 12:58 PM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.data.repository
 
 import android.content.Context

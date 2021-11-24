@@ -28,7 +28,6 @@ import com.dicoding.submission.githubuser.ui.view.UserDetailsActivity
 
 class FollowingFragment : Fragment(), UserListAdapter.UserListInterface {
     private var username: String? = null
-    private val USERNAME = "username"
     private var _binding: FragmentFollowingBinding? = null
     private val binding get() = _binding!!
     private lateinit var followingViewModel: FollowingViewModel
@@ -119,16 +118,6 @@ class FollowingFragment : Fragment(), UserListAdapter.UserListInterface {
         }
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(username: String) =
-            FollowingFragment().apply {
-                arguments = Bundle().apply {
-                    putString(USERNAME, username)
-                }
-            }
-    }
-
     private enum class Show {
         PROGRESS_INDICATOR,
         RECYCLER_VIEW,
@@ -144,5 +133,17 @@ class FollowingFragment : Fragment(), UserListAdapter.UserListInterface {
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    companion object {
+        private val USERNAME = "username"
+
+        @JvmStatic
+        fun newInstance(username: String) =
+            FollowingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(USERNAME, username)
+                }
+            }
     }
 }

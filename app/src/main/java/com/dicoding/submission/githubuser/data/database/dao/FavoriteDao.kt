@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 09/09/2021, 7:28 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.data.database.dao
 
 import androidx.lifecycle.LiveData

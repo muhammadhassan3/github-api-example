@@ -1,8 +1,3 @@
-/*******************************************************************************
- * Created by muham on 24/09/2021, 2:45 PM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 24/09/2021, 2:45 PM
- ******************************************************************************/
 package com.dicoding.submission.githubuser.ui.view.fragment
 
 import android.content.Intent

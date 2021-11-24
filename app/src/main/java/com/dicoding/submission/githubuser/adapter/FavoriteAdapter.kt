@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 27/09/2021, 8:50 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 27/09/2021, 8:50 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.adapter
 
 import android.graphics.Typeface
@@ -36,7 +30,7 @@ class FavoriteAdapter(private val listInterface: ListInterface) :
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        with(holder) {
+        holder.apply {
             with(list[position]) {
                 Glide.with(holder.itemView.context)
                     .load(avatarUrl).fitCenter().circleCrop().into(binding.imgIcon)

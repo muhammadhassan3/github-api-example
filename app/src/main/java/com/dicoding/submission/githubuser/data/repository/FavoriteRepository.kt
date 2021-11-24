@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 09/09/2021, 11:26 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.data.repository
 
 import android.app.Application
@@ -17,8 +11,6 @@ class FavoriteRepository(application: Application) {
     private var favoriteDao: FavoriteDao
     private var database = GithubDatabase.getInstance(application)
     private val executor = Executors.newSingleThreadExecutor()
-
-    companion object;
 
     init {
         favoriteDao = database.favoriteDao()

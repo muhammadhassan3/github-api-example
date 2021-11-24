@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 17/09/2021, 10:41 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 17/09/2021, 10:41 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.others
 
 import androidx.recyclerview.widget.DiffUtil

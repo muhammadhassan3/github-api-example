@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 12/08/2021, 11:39 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.ui.view.fragment
 
 import android.content.Intent
@@ -25,7 +19,6 @@ import com.dicoding.submission.githubuser.others.gone
 import com.dicoding.submission.githubuser.others.visible
 import com.dicoding.submission.githubuser.ui.main.viewmodel.FollowersDetailsViewModel
 import com.dicoding.submission.githubuser.ui.view.UserDetailsActivity
-
 
 class FollowersFragment : Fragment(), UserListAdapter.UserListInterface {
     private var username: String? = null

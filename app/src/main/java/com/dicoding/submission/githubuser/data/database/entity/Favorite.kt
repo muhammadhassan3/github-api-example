@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 09/09/2021, 2:37 PM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.data.database.entity
 
 import android.os.Parcelable

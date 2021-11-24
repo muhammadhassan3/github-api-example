@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 18/09/2021, 10:01 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 18/09/2021, 10:01 AM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.ui.view
 
 import android.os.Bundle

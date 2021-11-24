@@ -1,9 +1,3 @@
-/*******************************************************************************
- * Created by muham on 24/09/2021, 2:50 PM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 24/09/2021, 2:50 PM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.others
 
 import androidx.datastore.core.DataStore
@@ -13,9 +7,7 @@ import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-
 class DataStorePreferences private constructor(private val datastore: DataStore<Preferences>) {
-    private val DARK_MODE_KEY = booleanPreferencesKey("dark_mode")
 
     fun getDarkMode(): Flow<Boolean> {
         return datastore.data.map { preferences ->
@@ -30,6 +22,7 @@ class DataStorePreferences private constructor(private val datastore: DataStore<
     }
 
     companion object {
+        private val DARK_MODE_KEY = booleanPreferencesKey("dark_mode")
 
         @Volatile
         private var INSTANCE: DataStorePreferences? = null

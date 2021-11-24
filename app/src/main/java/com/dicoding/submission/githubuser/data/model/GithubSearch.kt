@@ -1,16 +1,9 @@
-/*******************************************************************************
- * Created by muham on 12/09/2021, 10:16 AM
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 09/09/2021, 3:09 PM
- ******************************************************************************/
-
 package com.dicoding.submission.githubuser.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import java.util.*
-
 
 @Parcelize
 data class GithubSearch(
