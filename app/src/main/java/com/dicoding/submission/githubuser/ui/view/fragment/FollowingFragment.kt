@@ -136,7 +136,7 @@ class FollowingFragment : Fragment(), UserListAdapter.UserListInterface {
     }
 
     companion object {
-        private val USERNAME = "username"
+        private const val USERNAME = "username"
 
         @JvmStatic
         fun newInstance(username: String) =

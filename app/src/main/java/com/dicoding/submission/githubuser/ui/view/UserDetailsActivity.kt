@@ -83,9 +83,9 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
-        user.login?.let {
-            viewModel.getFavoriteUser(it).observe(this@UserDetailsActivity, {
-                if (it != null) {
+        user.login?.let { username ->
+            viewModel.getFavoriteUser(username).observe(this@UserDetailsActivity, { favorite ->
+                if (favorite != null) {
                     isFavorite = true
                     binding.btnFavorite.apply {
                         setImageResource(R.drawable.ic_baseline_favorite_24)
