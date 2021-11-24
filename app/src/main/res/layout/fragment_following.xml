@@ -22,7 +22,6 @@
         android:contentDescription="@string/background" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/pBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
@@ -30,10 +29,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/pBar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -43,16 +42,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/rvList"
         tools:listitem="@layout/item_list_user" />
 
     <TextView
-        android:id="@+id/tvNoData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_data_available"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tvNoData"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

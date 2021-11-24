@@ -44,7 +44,7 @@ class FollowingFragment : Fragment(), UserListAdapter.UserListInterface {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFollowingBinding.inflate(layoutInflater)
         return binding.root
     }

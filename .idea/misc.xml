@@ -26,8 +26,13 @@
         <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/activity_favorite.xml" value="0.20416666666666666" />
         <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/activity_list.xml" value="0.11730072463768115" />
         <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/activity_splash_screen.xml" value="0.11730072463768115" />
-        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/activity_user_details.xml" value="0.33" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/activity_user_details.xml" value="0.30405405405405406" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/fragment_followers.xml" value="0.1" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/fragment_following.xml" value="0.1" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/item_list_user.xml" value="0.25" />
         <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/layout/settings_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/menu/delete.xml" value="0.20416666666666666" />
+        <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/menu/search_setting_favorite_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Coding/Dicoding/GithubUser/app/src/main/res/xml/preferences.xml" value="0.20416666666666666" />
       </map>
     </option>

@@ -8,7 +8,9 @@ package com.dicoding.submission.githubuser.ui.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,13 +53,33 @@ class FavoriteActivity : AppCompatActivity(), FavoriteAdapter.ListInterface {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()
+            R.id.btnDelete -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.title_confitmation))
+                    .setMessage(getString(R.string.message_confirmation))
+                    .setPositiveButton(getString(R.string.yes)) { dialog, position ->
+                        viewModel.deleteAll()
+                    }.setNegativeButton(getString(R.string.no)) { dialog, position ->
+                        dialog.cancel()
+                    }
+                alertDialog.show()
+            }
+            R.id.btnSettings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.delete, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     private fun initViewModel() {
         viewModel.data.observe(this, {
-            if (it != null && it.size > 0) {
+            if (it != null && it.isNotEmpty()) {
                 binding.tvNoData.gone()
                 binding.rvList.visible()
                 adapter.setData(it)

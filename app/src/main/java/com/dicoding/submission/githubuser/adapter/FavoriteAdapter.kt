@@ -39,7 +39,7 @@ class FavoriteAdapter(private val listInterface: ListInterface) :
         with(holder) {
             with(list[position]) {
                 Glide.with(holder.itemView.context)
-                    .load(avatarUrl).circleCrop().centerCrop().into(binding.imgIcon)
+                    .load(avatarUrl).fitCenter().circleCrop().into(binding.imgIcon)
                 if (location != null) {
                     binding.tvAddress.text = this.location
                 } else {

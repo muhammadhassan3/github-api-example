@@ -13,14 +13,12 @@ import com.dicoding.submission.githubuser.data.database.dao.FavoriteDao
 import com.dicoding.submission.githubuser.data.database.entity.Favorite
 import java.util.concurrent.Executors
 
-class FavoriteRepository(var application: Application) {
+class FavoriteRepository(application: Application) {
     private var favoriteDao: FavoriteDao
     private var database = GithubDatabase.getInstance(application)
     private val executor = Executors.newSingleThreadExecutor()
 
-    companion object {
-        private const val TAG = "FavoriteRepository"
-    }
+    companion object;
 
     init {
         favoriteDao = database.favoriteDao()
@@ -44,7 +42,7 @@ class FavoriteRepository(var application: Application) {
         }
     }
 
-    suspend fun getByUsername(username: String): LiveData<Favorite?> {
+    fun getByUsername(username: String): LiveData<Favorite?> {
         return favoriteDao.findByUsername(username)
     }
 

@@ -12,24 +12,22 @@
     tools:context=".ui.view.UserDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolbarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.GithubUser.AppBarOverlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapseToolbar"
+            style="@style/Githubuser.CollapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Githubuser.CollapsingToolbar"
             app:layout_scrollFlags="scroll">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="?attr/actionBarSize"
-                app:layout_collapseMode="parallax"
                 android:paddingBottom="8dp"
+                app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -48,6 +46,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cvUserDetail"
+                    style="@style/Githubuser.CardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -58,7 +57,6 @@
                     app:layout_constraintBottom_toTopOf="@+id/cvFollowers"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    style="@style/Githubuser.CardView"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +65,6 @@
                         android:layout_margin="16dp">
 
                         <com.google.android.material.progressindicator.CircularProgressIndicator
-                            android:id="@+id/progressIndicator"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:indeterminate="true"
@@ -75,6 +72,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
+                            android:id="@+id/progressIndicator"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
@@ -133,7 +131,6 @@
                             app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                         <TextView
-                            android:id="@+id/tvLocation"
                             style="@style/Githubuser.TextAppearance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -143,6 +140,7 @@
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@id/iconLocation"
                             app:layout_constraintTop_toTopOf="@id/iconLocation"
+                            android:id="@+id/tvLocation"
                             tools:text="Lokasi" />
 
                         <ImageView
@@ -173,6 +171,7 @@
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
                             android:background="@color/transparent"
+                            android:contentDescription="@string/favorite_button"
                             android:scaleType="fitXY"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -180,23 +179,22 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0"
-                            android:contentDescription="@string/favorite_button"
                             app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cvFollowers"
+                    style="@style/Githubuser.CardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     app:cardCornerRadius="8dp"
+                    app:cardMaxElevation="4dp"
                     app:layout_constraintEnd_toEndOf="@id/guideline1"
                     app:layout_constraintStart_toStartOf="parent"
-                    style="@style/Githubuser.CardView"
-                    app:cardMaxElevation="4dp"
                     app:layout_constraintTop_toBottomOf="@id/cvUserDetail">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -206,12 +204,12 @@
 
                         <TextView
                             android:id="@+id/tvTagFollowers"
+                            style="@style/Githubuser.TextAppearance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/followers"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            style="@style/Githubuser.TextAppearance"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
@@ -228,7 +226,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvFollowing"
+                    style="@style/Githubuser.CardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -237,7 +235,6 @@
                     app:cardCornerRadius="8dp"
                     app:layout_constraintEnd_toEndOf="@id/guideline2"
                     app:layout_constraintStart_toEndOf="@id/guideline1"
-                    style="@style/Githubuser.CardView"
                     app:layout_constraintTop_toBottomOf="@id/cvUserDetail">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -247,12 +244,12 @@
 
                         <TextView
                             android:id="@+id/tvTagFollowing"
+                            style="@style/Githubuser.TextAppearance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/following"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            style="@style/Githubuser.TextAppearance"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
@@ -270,7 +267,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvRepository"
+                    style="@style/Githubuser.CardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -279,7 +276,6 @@
                     app:cardCornerRadius="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guideline2"
-                    style="@style/Githubuser.CardView"
                     app:layout_constraintTop_toBottomOf="@id/cvUserDetail">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -289,12 +285,12 @@
 
                         <TextView
                             android:id="@+id/tvTagRepository"
+                            style="@style/Githubuser.TextAppearance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/repository"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            style="@style/Githubuser.TextAppearance"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
@@ -314,13 +310,13 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
+                style="@style/Githubuser.ToolbarAppearance"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:menu="@menu/share_toolbar"
                 app:popupTheme="@style/Theme.GithubUser.PopupOverlay"
-                app:title=" "
-                style="@style/Githubuser.ToolbarAppearance" />
+                app:title=" " />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <com.google.android.material.tabs.TabLayout
@@ -333,8 +329,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/viewPager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

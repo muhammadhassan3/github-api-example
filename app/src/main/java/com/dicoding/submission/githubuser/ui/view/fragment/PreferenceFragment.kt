@@ -46,7 +46,6 @@ class PreferenceFragment : PreferenceFragmentCompat() {
         val dataStorePreference = context?.dataStore?.let { DataStorePreferences.getInstance(it) }
         viewModel = dataStorePreference?.let { PreferenceViewModel(it) }
 
-        viewModel
         viewModel?.getDarkTheme()?.observe(this, {
             darkThemeSwitch?.isChecked = it
             if (it) {

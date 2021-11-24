@@ -17,7 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/profile_picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +47,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="25dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/home_location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvName"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,7 +56,6 @@
         app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
     <TextView
-        android:id="@+id/tvAddress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -64,5 +63,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iconLocation"
         app:layout_constraintTop_toTopOf="@id/iconLocation"
+        android:id="@+id/tvAddress"
         tools:text="Lokasi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

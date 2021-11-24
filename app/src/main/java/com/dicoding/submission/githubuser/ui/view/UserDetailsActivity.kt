@@ -8,14 +8,12 @@ package com.dicoding.submission.githubuser.ui.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -28,7 +26,6 @@ import com.dicoding.submission.githubuser.others.*
 import com.dicoding.submission.githubuser.ui.main.viewmodel.UserDetailsViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.launch
 
 class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUserDetailsBinding
@@ -93,21 +90,19 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         user.login?.let {
-            lifecycleScope.launch {
-                viewModel.getFavoriteUser(it).observe(this@UserDetailsActivity, {
-                    if (it != null) {
-                        isFavorite = true
-                        binding.btnFavorite.apply {
-                            setImageResource(R.drawable.ic_baseline_favorite_24)
-                        }
-                    } else {
-                        isFavorite = false
-                        binding.btnFavorite.apply {
-                            setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                        }
+            viewModel.getFavoriteUser(it).observe(this@UserDetailsActivity, {
+                if (it != null) {
+                    isFavorite = true
+                    binding.btnFavorite.apply {
+                        setImageResource(R.drawable.ic_baseline_favorite_24)
                     }
-                })
-            }
+                } else {
+                    isFavorite = false
+                    binding.btnFavorite.apply {
+                        setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                    }
+                }
+            })
         }
     }
 
@@ -197,7 +192,7 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent.createChooser(intent, "Bagikan melalui"))
             }
             R.id.btnSettings -> {
-                val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
             }
             else ->
@@ -245,7 +240,6 @@ class UserDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val USER_INFO = "user_info"
-        private const val TAG = "UserDetailsActivity"
 
         @StringRes
         private val tabTitle = arrayOf(

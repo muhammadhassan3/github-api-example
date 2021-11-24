@@ -13,6 +13,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/Githubuser.ToolbarAppearance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +49,6 @@
                 tools:text="00 User Ditemukan" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -56,11 +56,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvResult"
+                android:id="@+id/rvList"
                 tools:listitem="@layout/item_list_user" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/progressIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
@@ -68,5 +69,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/progressIndicator"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

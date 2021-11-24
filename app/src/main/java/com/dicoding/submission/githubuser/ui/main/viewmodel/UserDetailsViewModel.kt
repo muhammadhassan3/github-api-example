@@ -25,7 +25,7 @@ class UserDetailsViewModel(var app: Application) : AndroidViewModel(app) {
         data.postValue(repository.getUserbyUsername(username).value)
     }
 
-    suspend fun getFavoriteUser(username: String): LiveData<Favorite?> {
+    fun getFavoriteUser(username: String): LiveData<Favorite?> {
         return favoriteRepository.getByUsername(username)
     }
 

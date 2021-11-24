@@ -32,9 +32,7 @@ abstract class CallbackWithRetry<T> : Callback<T> {
     private val maxTry = 3
     private var count = 0
 
-    companion object {
-        const val TAG = "HTTP Response"
-    }
+    companion object;
 
     override fun onResponse(call: Call<T>, response: Response<T>) {
     }

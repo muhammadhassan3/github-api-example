@@ -9,7 +9,6 @@
     <string name="followers">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="repository">Repositori</string>
-    <string name="last_activity">Aktivitas Terakhir</string>
     <string name="no_data_available">Tidak ada data tersedia</string>
     <string name="share">Bagikan</string>
     <string name="search">Cari</string>
@@ -119,7 +118,6 @@
         <item>@drawable/user9</item>
         <item>@drawable/user10</item>
     </string-array>
-    <string name="userdetails_title">Detail User</string>
     <string name="invalid_username_query">Nama pengguna tidak valid</string>
     <string name="user_found">%d Pengguna Ditemukan</string>
     <string name="http_error_title">Gagal memuat data</string>
@@ -140,7 +138,10 @@
     <string name="office_location">Office Location</string>
     <string name="profile_picture">Profile Picture</string>
     <string name="favorite_button">Favorite Button</string>
-    <string name="setting">Pengaturan</string>
+    <string name="title_confitmation">Konfirmasi</string>
+    <string name="message_confirmation">Apakah anda yakin ingin menghapus semua data?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 </resources>
 
 
